@@ -224,8 +224,6 @@ variable "regras_entrada_basicas_aks" {
 variable "regras_entrada_basicas_appgw" {
   type = map(any)
   default = {
-    "110" = "80"
-    "120" = "443"
-    "130" = "65200-65535"
+    "110" = "1-65535"
   }
 }
