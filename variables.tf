@@ -188,7 +188,6 @@ variable "nodepool_01" {
   type    = string
   default = "nodepool01"
 }
-
 #####################
 # GRUPO DE SEGURANÇA  #
 ######################

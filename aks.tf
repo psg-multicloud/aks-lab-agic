@@ -16,5 +16,13 @@ resource "azurerm_kubernetes_cluster" "aks" {
   identity {
     type = "SystemAssigned"
   }
-  depends_on = [azurerm_resource_group.rg_lab, azurerm_virtual_network.vnet_lab, azurerm_subnet.subnet_aks, azurerm_network_security_group.nsg_aks]
+
+  
+    ingress_application_gateway {
+      enabled = true
+      subnet_id = azurerm_subnet.subnet_appgw.id
+    }
+  
+    depends_on = [azurerm_resource_group.rg_lab,azurerm_subnet.subnet_appgw, azurerm_virtual_network.vnet_lab, azurerm_subnet.subnet_aks, azurerm_network_security_group.nsg_aks]
+  
 }
